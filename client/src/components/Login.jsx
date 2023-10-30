@@ -1,11 +1,13 @@
 import React,{useState} from "react";
 import "./Login.css"
+import { Link } from 'react-router-dom';
+
 
 
 
 const Login=()=>{
     const [formdata,setFormdata]=useState({
-        username:'',
+        email:'',
         password:'',
     });
 
@@ -22,23 +24,36 @@ const Login=()=>{
     return(
         <div className="popup">
             <div className="popup-content">
-                <h2>Login</h2>
+                <h2>M-<span>Box</span></h2>
+                <h5>Login To Your Account</h5>
                 <form onSubmit={handleSubmit}>
-                    <input
-                    type="text"
-                    name="username"
-                    value={formdata.username}
-                    onChange={handleChange}
-                    placeholder="Username"
-                    />
-                    <input
-                    type="password"
-                    name="Password"
-                    value={formdata.password}
-                    onChange={handleChange}
-                    placeholder="Password"
-                    />
+
+                    <label>
+                        Email:
+                        <input
+                            type="email"
+                            name="Email"
+                            value={formdata.email}
+                            onChange={handleChange}
+                            placeholder="Email"
+                        />
+                    </label>
+                    <label>
+                        Password:
+                        <input
+                            type="password"
+                            name="Password"
+                            value={formdata.password}
+                            onChange={handleChange}
+                            placeholder="Password"
+                        />
+                    </label>
+                    
+                    
+                    
                     <button type="submit">Login</button>
+
+                    <p>Don't have an account?<Link to="/Signup">Sign Up</Link></p>
                 </form>
             </div>
         </div>

@@ -8,15 +8,30 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1; 
+    z-index: 2; 
   }
   
   .popup-content {
-    background: #fff;
+    background: black !important;
     padding: 20px;
     border-radius: 10px;
-    max-width: 400px; 
+    max-width: 500px; 
     width: 100%;
+    color: #fff;
+    box-sizing: border-box;
+    max-height: 600px;
+    
+  }
+  .popup-content p {
+    text-align: center;
+    margin-top: 20px; /* Add some top margin to separate it from the button */
+  }
+  .popup-content h2{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .popup-content h2 span{
+    color: #ff0000;
   }
   
   .popup-content input,
@@ -32,9 +47,16 @@
     color: #fff;
     border: none;
     cursor: pointer;
+    
   }
   
   .popup-content button:hover {
     background: #0056b3;
   }
-  
+  .popup-content form {
+    display: flex;
+    flex-direction: column;
+  }
+  .popup-content label {
+    margin-bottom: 10px;
+  }

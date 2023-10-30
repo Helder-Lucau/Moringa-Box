@@ -18,4 +18,30 @@ const Login=()=>{
 
         //Link to the database.
     }
+
+    return(
+        <div className="popup">
+            <div className="popup-content">
+                <h2>Login</h2>
+                <form onSubmit={handleSubmit}>
+                    <input
+                    type="text"
+                    name="username"
+                    value={formdata.username}
+                    onChange={handleChange}
+                    placeholder="Username"
+                    />
+                    <input
+                    type="password"
+                    name="Password"
+                    value={formdata.password}
+                    onChange={handleChange}
+                    placeholder="Password"
+                    />
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+    )
 }
+export default Login;

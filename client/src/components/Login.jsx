@@ -11,5 +11,11 @@ const Login=()=>{
 
     const handleChange=(e)=>{
         setFormdata({...formdata,[e.target.name]:e.target.value});
+    };
+
+    const handleSubmit=(e)=>{
+        e.preventDefault()//prevent reloading of page once input fields are filled
+
+        //Link to the database.
     }
 }

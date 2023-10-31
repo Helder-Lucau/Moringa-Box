@@ -1,10 +1,22 @@
-.popup-content {
-    background: black !important;
+.login-popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2; 
+  }
+.login-popup-content {
+    background:#1E232A ;
     padding: 20px;
     border-radius: 10px;
     max-width: 400px; /* Adjusted maximum width */
     width: 100%;
-    max-height: 400px; /* Adjusted maximum height */
+    max-height: 500px; /* Adjusted maximum height */
     height: 100%;
     color: #fff;
     display: flex;
@@ -13,31 +25,38 @@
     justify-content: center; /* Center content vertically */
   }
   
-  .popup-content h2 {
+  .login-popup-content h2 {
     
     margin-bottom: 10px; 
   }
-  .popup-content h2 span{
+  .login-popup-content h2 span{
     color: #ff0000;
   }
   
-  .popup-content h5 {
+  .login-popup-content h5 {
     margin-bottom: 20px; /* Add more space below the h5 */
   }
   
-  .popup-content form {
+  .login-popup-content form {
     width: 100%;
   }
   
-  .popup-content input,
-  .popup-content button {
+  .login-popup-content input,
+  .login-popup-content button {
     width: calc(100% - 20px); /* Adjusted width with some margin */
     margin-bottom: 10px;
     padding: 10px;
     box-sizing: border-box;
+    color:#fff;
+    
+    
+  }
+  .login-popup-content input {
+    width: 100%;
+    color: #000;
   }
   
-  .popup-content button {
+  .login-popup-content button {
     background: #007bff;
     color: #fff;
     border: none;
@@ -46,7 +65,16 @@
     
   }
   
-  .popup-content button:hover {
+  .login-popup-content button:hover {
     background: #0056b3;
+  }
+  .login-popup-content p {
+    text-align: center;
+    margin-top: 10px; /* Adjusted top margin */
+  }
+  .login-popup-content form {
+    display: flex;
+    flex-direction: column;
+    
   }
   

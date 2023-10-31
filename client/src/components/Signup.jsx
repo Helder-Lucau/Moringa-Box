@@ -24,8 +24,8 @@ const Signup=()=>{
 
 
     return(
-        <div className="popup">
-            <div className="popup-content">
+        <div className="signup-popup">
+            <div className="signup-popup-content">
                 <h2>Create an M-<span>Box</span> Account</h2>
                 <form onSubmit={handleSubmit}>
                     <label>
@@ -35,7 +35,7 @@ const Signup=()=>{
                         name="FirstName"
                         value={formData.firstname}
                         onChange={handleChange}
-                        placeholder="FirstName"
+                        
                     />
                     </label>
                     <label>
@@ -45,7 +45,7 @@ const Signup=()=>{
                             name="LastName"
                             value={formData.lastname}
                             onChange={handleChange}
-                            placeholder="LastName"
+                            
                     />
                     </label>
                     <label>
@@ -55,7 +55,7 @@ const Signup=()=>{
                             name="Email"
                             value={formData.email}
                             onChange={handleChange}
-                            placeholder="Email"
+                            
                     />
                     </label>
                     <label>
@@ -65,7 +65,7 @@ const Signup=()=>{
                         name="Password"
                         value={formData.password}
                         onChange={handleChange}
-                        placeholder="Password"
+                        
                     />
                     </label>
                     

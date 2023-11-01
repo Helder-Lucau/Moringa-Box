@@ -42,7 +42,7 @@ const Signup = () => {
                 confirmButtonText: "Nice",
                 confirmButtonColor: "#f1cc17",
             });
-            navigate('/login');
+            navigate('/login')
 
             // Clear form data
             setFormData({

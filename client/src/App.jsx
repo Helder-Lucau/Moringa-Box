@@ -1,20 +1,20 @@
-import Login from "./components/Login.jsx";
-import React from "react";
-import Signup from "./components/Signup.jsx";
-import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
+import React from "react"
+import { BrowserRouter as Router, Routes } from "react-router-dom"
+import './App.css'
+import Navbar from './components/Navbar'
+import Home from './components/Home'
 
-
-function App(){
-
-  return(
-    <Router>
-      <div>
+function App() {
+  return (
+    <div>
+      <Router>
+        <Navbar />
         <Routes>
-          <Route path="/Login" element={<Login/>}/>
-          <Route path="/Signup" element={<Signup/>}/>
+          <Routes path="/" element={<Home />} />
         </Routes>
-      </div>
-    </Router>
+      </Router>
+    </div>
+
   )
 }
 

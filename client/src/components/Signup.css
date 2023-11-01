@@ -53,11 +53,12 @@
   background: #007bff;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   padding: 10px;
   cursor: pointer;
   width: calc(100% - 20px);
   margin-bottom: 10px;
+  margin-top: 20px;
   box-sizing: border-box;
 }
 

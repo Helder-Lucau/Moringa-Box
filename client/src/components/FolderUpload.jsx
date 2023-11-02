@@ -3,13 +3,13 @@ import React from "react";
 
 const FolderUpload=()=>{
 
-    const handleFileUpload=(e)=>{
-//Implement logic to handle file upload
+    const handleFolderUpload=(e)=>{
+//Implement logic to handle folder upload
     }
 
 
     return(
-        <input type="file" onChange={handleFileUpload}/>
+        <button onClick={handleFolderUpload}>Upload Folder</button>
 
     );
 };

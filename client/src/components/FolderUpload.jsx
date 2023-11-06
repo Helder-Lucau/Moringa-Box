@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FolderUploadPopup from "./FolderUploadPopup";
 
-const FolderUpload = ({ onUpload }) => {
+const FolderUpload = ({ onUpload,currentFolder}) => {
   const [showPopup, setShowPopup] = useState(false);
 
   const handleFolderUpload = () => {

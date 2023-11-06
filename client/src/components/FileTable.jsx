@@ -1,13 +1,9 @@
-
 import React from "react";
 
-
-const FileTable = ({ files,displayFiles, onDelete, onDownload }) => {
-    const filteredFiles = displayFiles
-    ?files.filter(file=>file.type === 'file')
-    :files.filter(file=>file.type === 'folder')
-
-    console.log(filteredFiles)
+const FileTable = ({ files, displayFiles, onDelete, onDownload, onMove, onOpenFolder }) => {
+  const filteredFiles = displayFiles
+    ? files.filter((file) => file.type === "file")
+    : files.filter((file) => file.type === "folder");
 
   return (
     <div className="file-table">
@@ -19,12 +15,31 @@ const FileTable = ({ files,displayFiles, onDelete, onDownload }) => {
           </tr>
         </thead>
         <tbody>
-          {files.map((file, index) => (
+          {filteredFiles.map((file, index) => (
             <tr key={index}>
-              <td>{file.name}</td>
               <td>
-                <button className="download" onClick={() => onDownload(file)}>Download</button>
-                <button className="delete" onClick={() => onDelete(file)}>Delete</button>
+                {file.type === "folder" ? (
+                  <button className="open" onClick={() => onOpenFolder(file)}>
+                    {file.name}
+                  </button>
+                ) : (
+                  file.name
+                )}
+              </td>
+              <td>
+                {file.type === "file" && (
+                  <button className="download" onClick={() => onDownload(file)}>
+                    Download
+                  </button>
+                )}
+                {file.type === "file" && (
+                  <button className="move" onClick={() => onMove(file)}>
+                    Move
+                  </button>
+                )}
+                <button className="delete" onClick={() => onDelete(file)}>
+                  Delete
+                </button>
               </td>
             </tr>
           ))}

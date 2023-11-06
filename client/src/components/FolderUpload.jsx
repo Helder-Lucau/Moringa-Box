@@ -1,16 +1,22 @@
-//Form to upload files.
-import React from "react";
+import React, { useState } from "react";
+import FolderUploadPopup from "./FolderUploadPopup";
 
-const FolderUpload=()=>{
+const FolderUpload = ({ onUpload }) => {
+  const [showPopup, setShowPopup] = useState(false);
 
-    const handleFolderUpload=(e)=>{
-//Implement logic to handle folder upload
-    }
+  const handleFolderUpload = () => {
+    setShowPopup(true);
+  };
 
-
-    return(
-        <button onClick={handleFolderUpload}>Upload Folder</button>
-
-    );
+  return (
+    <div>
+      <button onClick={handleFolderUpload}>Upload Folder</button>
+      {showPopup && <FolderUploadPopup onUpload={(newFolders) => {
+        onUpload(newFolders);
+        setShowPopup(false);
+      }} />}
+    </div>
+  );
 };
+
 export default FolderUpload;

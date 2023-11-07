@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import SweetAlert2 from "sweetalert2";
 import * as yup from "yup";
 import { useFormik } from "formik";
+import Spinner from "./Spinner"; // Assuming Spinner component is in the same directory
 import "./Login.css";
 
 function Login() {
@@ -22,13 +23,8 @@ function Login() {
     },
     validationSchema: formSchema,
     onSubmit: async (values) => {
-        console.log("Form Submitted:", values);
-        console.log("Fetching data...................................");
-            
-            console.log("Fetching formik data...................................");
-            console.log(formik.values);
       try {
-        let resp = await fetch("http://127.0.0.1:5555/login", {
+        let resp = await fetch("https://moringa-box-4kry.onrender.com/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -38,10 +34,11 @@ function Login() {
 
         if (resp.ok) {
           let re = await resp.json();
-          console.log("Received access token..............: " + re.access_token);
-          console.log("Received user.................: " + re.user);
+          console.log(re);
+          console.log("Received access token: " + re['access_token']);
+          console.log("Received user: " + re.user);
 
-          localStorage.setItem("accessToken", re.access_token);
+          localStorage.setItem("accessToken", re['access_token']);
           localStorage.setItem("user_id", re.user_id);
 
           setIsLoading(true);
@@ -54,7 +51,7 @@ function Login() {
               confirmButtonText: "Nice",
               confirmButtonColor: "#f1cc17",
             });
-            navigate("/");
+            navigate("/Dashboard");
           }, 2000);
 
         } else {

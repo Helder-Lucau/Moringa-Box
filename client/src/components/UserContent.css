@@ -1,0 +1,81 @@
+
+.content {
+    padding: 20px;
+  }
+  
+  .dashboard-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .dashboard-info span {
+    font-size: 20px;
+    margin-right: 10px;
+  }
+  
+  .dropdown select {
+    padding: 5px;
+    font-size: 16px;
+  }
+  
+  .upload-buttons {
+    margin: 20px 0;
+    display: flex;
+    gap: 20px;
+   
+    
+  }
+  
+  .file-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .file-table th,
+  .file-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .file-table th {
+    background-color: #f0f0f0;
+  }
+ 
+  
+  
+  .file-table button:hover {
+    text-decoration: underline;
+  }
+  .file-table button {
+    font-size: 16px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-right: 20px;
+    
+  }
+  
+  .file-table button.download {
+    color: white;
+    background-color:#1e232a;
+  }
+  .file-table button.download:hover {
+    background-color: black; 
+    text-decoration: none;
+  }
+  
+  
+  .file-table button.delete {
+    color:white ;
+    background-color: #EA4C46;
+    
+  }
+  .file-table button.delete:hover {
+    background-color: red; 
+    text-decoration: none;
+  }
+  
+  
+  .file-table button:focus {
+    outline: none;
+  }

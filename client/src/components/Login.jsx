@@ -5,6 +5,8 @@ import * as yup from "yup";
 import { useFormik } from "formik";
 import Spinner from "./Spinner"; // Assuming Spinner component is in the same directory
 import "./Login.css";
+import Navbar from "./Navbar";
+
 
 function Login() {
   const [isLoading, setIsLoading] = useState(false);
@@ -46,10 +48,10 @@ function Login() {
             setIsLoading(false);
             SweetAlert2.fire({
               title: "Success!",
-              text: "Log In is successful, Welcome to Moringa-Box",
+              text: "Welcome to M-BOX",
               icon: "success",
-              confirmButtonText: "Nice",
-              confirmButtonColor: "#f1cc17",
+              confirmButtonText: "Continue",
+              confirmButtonColor: "#ba324f",
             });
             navigate("/Dashboard");
           }, 2000);
@@ -70,53 +72,55 @@ function Login() {
 
   return (
     <div>
-      <div className="popup">
-        <div className="popup-content">
-          <div className="login-popup">
-            <div className="login-popup-content">
-              <h2>M-<span>Box</span></h2>
-              <h5>Login To Your Account</h5>
-              <form onSubmit={formik.handleSubmit}>
-                <label>
-                  Email:
-                  <input
-                    type="email"
-                    name="email"
-                    value={formik.values.email}
-                    onChange={formik.handleChange}
-                    required
-                  />
-                </label>
-                {formik.touched.email && formik.errors.email ? (
-                  <div style={{ color: "red" }}>{formik.errors.email}</div>
-                ) : null}
-                <label>
-                  Password:
-                  <input
-                    type="password"
-                    name="password"
-                    value={formik.values.password}
-                    onChange={formik.handleChange}
-                    required
-                  />
-                </label>
-                {formik.touched.password && formik.errors.password ? (
-                  <div style={{ color: "red" }}>{formik.errors.password}</div>
-                ) : null}
-                {isLoading ? <Spinner /> : <button type="submit">Login</button>}
-              </form>
-              {errors.password && (
-                <p style={{ color: "red" }}>{errors.password}</p>
-              )}
-              <p>
-                Don't have an account? <Link to="/Signup">Sign up here</Link>
-              </p>
-            </div>
+      <Navbar />
+      <div className="flex justify-center items-center h-screen w-full">
+        <form onSubmit={formik.handleSubmit} className="text-white max-w-[400px] rounded-xl w-full mx-auto bg-[#1e232a] p-8">
+          <h2 className="text-2xl font-medium text-center py-4">Login to your Account</h2>
+          <div className="flex flex-col mb-4">
+            <label>
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              className="p-2 text-black bg-gray-200"
+              placeholder="mbox@google.com"
+              required
+            />
+            {formik.touched.email && formik.errors.email ? (
+              <div style={{ color: "red" }}>{formik.errors.email}</div>
+            ) : null}
           </div>
-        </div>
+          <div className="flex flex-col mb-4">
+            <label>
+              Password
+            </label>
+            <input
+              type="password"
+              name="password"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              className="p-2 text-black bg-gray-200"
+              placeholder="Password"
+              required
+            />
+          </div>
+          {formik.touched.password && formik.errors.password ? (
+            <div style={{ color: "red" }}>{formik.errors.password}</div>
+          ) : null}
+          {isLoading ? <Spinner /> : <button type="submit" className="w-full rounded-2xl py-2 mt-6 bg-[#ba324f] hover:bg-[#9eb3c2]">LOGIN</button>}
+          <p className="text-center mt-8">
+            Don't have an account? <Link to="/Signup" className="no-underline">Sign up now</Link>
+          </p>
+        </form>
+        {errors.password && (
+          <p style={{ color: "red" }}>{errors.password}</p>
+        )}
       </div>
     </div>
   );
 }
 
-export default Login;
+export default Login

@@ -5,17 +5,17 @@ import UserContent from "./UserContent";
 
 const Dashboard = (props) => {
 
-    const location = useLocation();;
-    console.log(location)
-    const username = location.state?.username || "";
-    
+  const location = useLocation();;
+  console.log(location)
+  const username = location.state?.username || "";
+
   const [displayFiles, setDisplayFiles] = useState(true);
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [currentFolder, setCurrentFolder] = useState(null);
 
   return (
     <div className="dashboard">
-      <UserHeader setCurrentFolder={setCurrentFolder} username={username}/>
+      <UserHeader setCurrentFolder={setCurrentFolder} username={username} />
       <UserContent
         displayFiles={displayFiles}
         setDisplayFiles={setDisplayFiles}

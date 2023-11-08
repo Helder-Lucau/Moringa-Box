@@ -69,7 +69,7 @@ function Login() {
   });
 
   return (
-    <>
+    <div>
       <div className="popup">
         <div className="popup-content">
           <div className="login-popup">
@@ -115,7 +115,7 @@ function Login() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

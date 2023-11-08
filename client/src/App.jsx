@@ -1,27 +1,27 @@
 import React from "react"
-import { BrowserRouter as Router, Routes,Route } from "react-router-dom"
-import './App.css'
-import Navbar from './components/Navbar'
+import { Route, Routes } from "react-router-dom"
 import Home from './components/Home'
+import About from './components/About'
+import Contact from "./components/Contact"
 import Login from "./components/Login"
 import Signup from "./components/Signup"
 import Dashboard from "./components/Dashboard"
 
 
-function App(){
-
-  return(
+function App() {
+  return (
     <div>
-    <Router>
-        <Routes>
-          <Route path="/Login" element={<Login/>}/>
-          <Route path="/Signup" element={<Signup/>}/>
-          <Route path="/Dashboard" element={<Dashboard/>}/>
-          <Route path="/" element={<Navbar/>}/>
-        </Routes>
-    </Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/Dashboard" element={<Dashboard />} />
+      </Routes>
     </div>
   )
 }
 
-export default App;
+export default App
+

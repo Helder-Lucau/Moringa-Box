@@ -6,7 +6,7 @@ import { useFormik } from "formik";
 import Spinner from "./Spinner"; // Assuming Spinner component is in the same directory
 import "./Login.css";
 
-function Login() {
+function Login({setUser}) {
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
@@ -34,13 +34,15 @@ function Login() {
 
         if (resp.ok) {
           let re = await resp.json();
+          console.log('rrrrrrrrrrrrrrrrrrrrrrrrrr')
           console.log(re);
           console.log("Received access token: " + re['access_token']);
-          console.log("Received user: " + re.user);
+          console.log("Received user: " + re['user']);
 
           localStorage.setItem("accessToken", re['access_token']);
-          localStorage.setItem("user_id", re.user_id);
+          localStorage.setItem("user", re['user']);
 
+          setUser(re['user']);
           setIsLoading(true);
           setTimeout(() => {
             setIsLoading(false);

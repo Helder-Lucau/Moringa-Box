@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import FolderUploadPopup from "./FolderUploadPopup";
 
-const FolderUpload = ({ onUpload,currentFolder}) => {
+const FolderUpload = ({ onUpload, currentFolder }) => {
   const [showPopup, setShowPopup] = useState(false);
+ 
 
   const handleFolderUpload = () => {
     setShowPopup(true);
@@ -11,10 +12,12 @@ const FolderUpload = ({ onUpload,currentFolder}) => {
   return (
     <div>
       <button onClick={handleFolderUpload}>Upload Folder</button>
-      {showPopup && <FolderUploadPopup onUpload={(newFolders) => {
-        onUpload(newFolders);
-        setShowPopup(false);
-      }} />}
+      {showPopup && (
+        <FolderUploadPopup
+          onUpload={onUpload}
+          setShowPopup={setShowPopup}
+        />
+      )}
     </div>
   );
 };

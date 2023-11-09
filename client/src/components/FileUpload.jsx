@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
-const FileUpload = ({ onUpload,targetFolder }) => {
-  const handleFileUpload = (e) => {
-    const newFiles = Array.from(e.target.files);
-    onUpload(newFiles,targetFolder);
+const FileUpload = ({ onUpload , setFile}) => {
+  const handleFileUpload = (event) => {
+    setFile(event.target.files);
+    // const files = event.target.files;
+    // console.log(".....................FileUpload")
+    // console.log(files); // Add this line to debug
+     onUpload(files);
   };
 
-  return <input type="file" onChange={handleFileUpload} />;
+  return <input type="file" onChange={handleFileUpload} multiple />;
 };
 
 export default FileUpload;

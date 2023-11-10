@@ -1,48 +1,53 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom"
-import logosimage from "../assets/logo.png";
-import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { AiOutlineClose, AiOutlineMenuUnfold } from 'react-icons/ai'
 
-function Navbar() {
+const Navbar = () => {
 
-    const [nav, setNav] = useState(false)
+  const [menu, setMenu] = useState(false)
 
-    const handleNav = () => {
-        setNav(!nav)
-    }
-    return (
-        <div className="flex justify-between items-center h-24 text-white mx-auto px-4 bg-[#1E232A]">
-            <img className="w-20" src={logosimage} alt="logo" />
-            <ul className="hidden md:flex">
-                <li className="p-4">
-                    <Link className="text-white" to="/">HOME</Link>
-                </li>
-                <li className="p-4">
-                    <Link to="/about" className="text-white">ABOUT</Link>
-                </li>
-                <li className="p-4">
-                    <Link to="/contact" className="text-white">CONTACT</Link>
-                </li>
-            </ul>
-            <div onClick={handleNav} className="block md:hidden">
-                {!nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
-            </div>
-            <div className={!nav ? 'fixed left-0 top-0 w-[60%] h-full border-r-gray-900 bg-[#1E232A] ease-in-out duration-500' : 'fixed left-[-100%]'}>
-                <img className="w-20 m-4" src={logosimage} alt="logo" />
-                <ul className="p-4">
-                    <li className="p-4 border-b border-gray-600 text-white">
-                        <Link to="/" className="text-white">HOME</Link>
-                    </li>
-                    <li className="p-4 border-b border-gray-600">
-                        <Link to="/about" className="text-white">ABOUT</Link>
-                    </li>
-                    <li className="p-4">
-                        <Link to="/contact" className="text-white">CONTACT</Link>
-                    </li>
-                </ul>
-            </div>
+  // Prevents user on mobile from scrolling while menu bar is opened
+  const handleChange = () => {
+    setMenu(!menu)
+    // if (!menu) {
+    //   document.body.style.overflow = 'hidden'
+    // } else {
+    //   document.body.style.overflow = 'scroll'
+    // }
+  }
+
+  return (
+    <div className='bg-[#1e232a] w-full'>
+      <div>
+        <div className='flex flex-row justify-between p-4 md:px-32 px-5'>
+          <div className='flex flex-row items-center cursor-pointer'>
+            <h1 className='md:text-3xl text-xl font-semibold text-white'>M-<span className='text-red-600'>BOX.</span></h1>
+          </div>
+          <nav className='hidden md:flex flex-row items-center text-lg font-medium gap-8 tracking-widest'>
+            <Link to="/" className='text-white no-underline -bottom-1 hover:h-full hover:underline-offset-8'>HOME</Link>
+            <Link to="/about" className='cursor-pointer text-white no-underline -bottom-1 hover:h-full'>ABOUT</Link>
+            <Link to="/contact" className='cursor-pointer text-white no-underline -bottom-1 hover:h-full'>CONTACT</Link>
+            <button>
+              <Link to="/login" className="px-10 py-1 no-underline rounded-2xl text-white bg-[#ba324f] hover:bg-[#9eb3c2]">LOGIN</Link>
+            </button>
+          </nav>
+          <div className='md:hidden flex items-center'>
+            {
+              menu ? (<AiOutlineClose size={25} onClick={handleChange} className='text-white' />) : (<AiOutlineMenuUnfold size={25} onClick={handleChange} className='text-white' />)
+            }
+          </div>
         </div>
-    );
+        <div className={`${menu ? "translate-x-0" : "-translate-x-full"} md:hidden flex flex-col absolute bg-[#1E232A] left-0 top-20 font-medium text-2xl text-center pt-8 pb-4 gap-8 w-full h-screen transition-transform duration-300`}>
+          <Link to="/" className='cursor-pointer py-2 tracking-widest text-white no-underline' >HOME</Link>
+          <Link to="/about" className='cursor-pointer py-2 tracking-widest text-white no-underline'>ABOUT</Link>
+          <Link to="/contact" className='cursor-pointer py-2 tracking-widest text-white no-underline'>CONTACT</Link>
+          <button>
+            <Link to="/login" className="text-white no-underline px-24 rounded-2xl bg-[#ba324f] hover:bg-[#9eb3c2]">LOGIN</Link>
+          </button>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default Navbar

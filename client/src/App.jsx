@@ -1,31 +1,32 @@
-import React, { useState} from "react"
-import { BrowserRouter as Router, Routes,Route } from "react-router-dom"
-import './App.css'
-import Navbar from './components/Navbar'
+import {useState} from "react"
+import { Route, Routes } from "react-router-dom"
 import Home from './components/Home'
+import About from './components/About'
+import Contact from "./components/Contact"
 import Login from "./components/Login"
 import Signup from "./components/Signup"
 import Dashboard from "./components/Dashboard"
 
-
-function App(){
+function App() {
+  
   const [user, setUser] = useState({});
   
   console.log('Logged in user ..............................');
   console.log(user);
-
-  return(
+            
+  return (
     <div>
-    <Router>
-        <Routes>
-          <Route path="/Login" element={<Login setUser={setUser}/>}/>
-          <Route path="/Signup" element={<Signup/>}/>
-          <Route path="/Dashboard" element={<Dashboard user={user}/>}/>
-          <Route path="/" element={<Navbar/>}/>
-        </Routes>
-    </Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/Login" element={<Login setUser={setUser}/>}/>
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/Dashboard" element={<Dashboard user={user}/>}/>
+      </Routes>
     </div>
   )
 }
 
-export default App;
+export default App
+

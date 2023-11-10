@@ -5,8 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        saira: "'Saira Condensed', sans-serif",
+        oswald: "'Oswald', sans-serif;",
+        montserrat: "'Montserrat', sans-serif;",
+        raleway: "'Raleway', sans-serif;",
+      }
+    },
   },
   plugins: [],
 }
-

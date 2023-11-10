@@ -1,30 +1,26 @@
-//We need to create a popup for creating the folder name.
-import React,{useState} from "react";
-import "./FolderUploadPopup.css"
+import React, { useState }  from "react";
+import "./FolderUploadPopup.css";
 
+const FolderUploadPopup = ({ onUpload, setShowPopup }) => {
 
-const FolderUploadPopup=({onUpload})=>{
-    const [folderName,setFolderName]=useState("")
+  const [folderName, setFolderName] = useState(""); // Initialize folderName state
 
-    const handleFolderUpload=()=>{
-        if(folderName.trim()!==""){
-            onUpload([{name:folderName,type:"Folder"}])
-            setFolderName("")//Reset foldername once it is uploaded
-    }
-}
-
-return(
+  const handleFolderUpload = () => {
+    onUpload(folderName);
+    setShowPopup(false);
+  };
+  
+  return (
     <div className="folder-upload-popup">
-        <input
+      <input
         type="text"
         placeholder="Enter folder name"
         value={folderName}
-        onChange={(e)=>setFolderName(e.target.value)}
-        />
-        <button onClick={handleFolderUpload}>Upload Folder</button>
+        onChange={(e) => setFolderName(e.target.value)}
+      />
+      <button onClick={handleFolderUpload}>Upload Folder</button>
     </div>
-
-)
-}
+  );
+};
 
 export default FolderUploadPopup;
